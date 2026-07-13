@@ -1,8 +1,0 @@
-.speech-analysis { margin-top: 16px; padding: 14px; background: #f2f7f3; border: 1px solid var(--line); border-radius: 12px; }
-.speech-analysis p { margin-bottom: 0; }
-.quality-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
-.quality-metrics div { padding: 8px; border-radius: 8px; background: #fff; font-size: .77rem; }
-.quality-metrics strong { display: block; color: var(--teal2); font-size: 1rem; }
-.transcript-label { margin-top: 10px !important; color: var(--muted); font-size: .77rem; font-weight: 800; }
-.transcript { margin-top: 4px !important; min-height: 25px; font-size: .87rem; }
-@media (max-width: 650px) { .quality-metrics { grid-template-columns: 1fr; } }
