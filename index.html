@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b6e69" />
+    <meta name="description" content="含錄音、統計、連續練習、徽章與收藏的口條練習工具。" />
+    <title>口條練習基地 Pro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="social-reminder.css" />
+  </head>
+  <body>
+    <header class="site-header"><div><p class="eyebrow">SPEAKING PRACTICE PRO</p><h1>口條練習基地</h1></div><p id="today" class="today"></p></header>
+    <main>
+      <section class="dashboard" aria-label="練習統計">
+        <article class="metric"><span>📈 練習次數</span><strong id="total-count">0</strong><small>已完成的練習</small></article>
+        <article class="metric"><span>🔥 連續練習</span><strong id="streak-count">0 天</strong><small id="streak-note">今天就從一次開始</small></article>
+        <article class="metric"><span>⭐ 收藏題目</span><strong id="favorite-count">0</strong><small>想再練習的主題</small></article>
+      </section>
+
+      <aside class="social-reminder" aria-labelledby="social-reminder-title">
+        <span class="reminder-icon" aria-hidden="true">💬</span>
+        <div>
+          <p class="eyebrow">練習提醒</p>
+          <h2 id="social-reminder-title">口條練習是起點，真實互動才是延伸</h2>
+          <p>本網站適合用來練習表達、錄音回聽與整理說話習慣；但想真正提升社交聊天能力，仍需要多和現實世界的人們互動，在對話中練習傾聽、接話與回應。</p>
+        </div>
+      </aside>
+
+      <section class="panel challenge-panel" aria-labelledby="challenge-title">
+        <div class="panel-heading"><div><p class="eyebrow">今日挑戰</p><h2 id="challenge-title">準備開始</h2></div><button id="draw" class="button primary">重新抽籤</button></div>
+        <div class="challenge-grid">
+          <article class="challenge-card topic-card"><span>主題 <button id="favorite-topic" class="star-button" title="收藏這個主題" aria-label="收藏這個主題">☆</button></span><strong id="topic">—</strong><small id="topic-category">—</small></article>
+          <article class="challenge-card"><span>對象</span><strong id="audience">—</strong></article>
+          <article class="challenge-card"><span>講法</span><strong id="style">—</strong></article>
+          <article class="challenge-card"><span>時間</span><strong id="duration">—</strong></article>
+          <article class="challenge-card wide"><span>挑戰限制</span><strong id="constraint">—</strong></article>
+        </div>
+      </section>
+
+      <section class="two-columns">
+        <section class="panel" aria-labelledby="practice-title">
+          <p class="eyebrow">開始練習</p><h2 id="practice-title" class="timer" aria-live="polite">00:00</h2><p id="timer-status" class="muted">倒數時間會依抽到的指定時間設定。</p>
+          <div class="actions"><button id="timer" class="button primary">開始計時</button><button id="timer-reset" class="button secondary">重設</button></div>
+          <div class="divider"></div>
+          <p class="eyebrow">🎤 錄音</p><div class="record-row"><button id="record" class="button record">開始錄音</button><span id="record-status" class="muted" role="status">按下後允許麥克風權限</span></div>
+          <audio id="preview" controls hidden></audio>
+          <p class="hint">錄音只儲存在目前裝置的瀏覽器；可下載成音檔自行備份。</p>
+          <section class="speech-analysis" aria-labelledby="transcript-title">
+            <p class="eyebrow">🗣️ 本機口條分析</p>
+            <h3 id="transcript-title">逐字稿</h3>
+            <p id="transcript-status" class="muted" role="status">開始錄音後，支援的手機瀏覽器會同步產生逐字稿。</p>
+            <label class="transcript-label">辨識文字（可自行修正或貼上）
+              <textarea id="transcript" rows="5" maxlength="3000" placeholder="錄音時會在這裡顯示逐字稿；若手機不支援，可在播放錄音後自行貼上文字。"></textarea>
+            </label>
+            <div class="speech-metrics" aria-label="逐字稿統計">
+              <div><span>語速</span><strong id="speech-rate">— 字／分</strong></div>
+              <div><span>口頭禪</span><strong id="filler-count">0 次</strong></div>
+            </div>
+            <p id="speech-tip" class="hint">逐字稿僅在此裝置的瀏覽器處理與保存。</p>
+          </section>
+        </section>
+
+        <section class="panel" aria-labelledby="save-title">
+          <p class="eyebrow">完成紀錄</p><h2 id="save-title">把這次練習留下來</h2>
+          <form id="practice-form">
+            <label>完成狀態<select id="status"><option>已完成</option><option>部分完成</option><option>未完成</option></select></label>
+            <label>自評<select id="rating"><option value="5">5 — 很順</option><option value="4">4 — 大致順暢</option><option value="3" selected>3 — 普通</option><option value="2">2 — 有些卡頓</option><option value="1">1 — 需要重練</option></select></label>
+            <label>下次改進（選填）<textarea id="note" rows="3" maxlength="200" placeholder="例如：開頭先說結論，再用兩個例子補充"></textarea></label>
+            <button class="button primary full" type="submit">儲存本次練習</button>
+          </form>
+        </section>
+      </section>
+
+      <section class="panel" aria-labelledby="achievement-title"><p class="eyebrow">🏆 成就徽章</p><h2 id="achievement-title">你的里程碑</h2><div id="badges" class="badges"></div></section>
+
+      <section class="two-columns">
+        <section class="panel" aria-labelledby="analysis-title"><p class="eyebrow">📊 主題類別分析</p><h2 id="analysis-title">哪些主題講得最多？</h2><div id="category-chart" class="category-chart"></div><p id="analysis-note" class="muted">完成練習後，這裡會顯示類別分布。</p></section>
+        <section class="panel" aria-labelledby="favorite-title"><p class="eyebrow">⭐ 我的收藏</p><h2 id="favorite-title">想再練習的題目</h2><div id="favorites" class="simple-list"></div></section>
+      </section>
+
+      <section class="panel" aria-labelledby="history-title"><div class="panel-heading"><div><p class="eyebrow">練習與錄音</p><h2 id="history-title">最近紀錄</h2></div><button id="clear-data" class="link-button">清除全部資料</button></div><div id="history" class="history"></div></section>
+    </main>
+    <footer>靜態 GitHub Pages 版 · 資料與錄音保存在此裝置的瀏覽器。</footer>
+    <script src="app.js"></script>
+  </body>
+</html>

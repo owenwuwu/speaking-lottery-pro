@@ -1,0 +1,47 @@
+.social-reminder {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 0 0 16px;
+  padding: 18px 20px;
+  border: 1px solid #b9ddd4;
+  border-left: 5px solid var(--teal);
+  border-radius: 16px;
+  background: linear-gradient(110deg, #e3f3ee, #fbf8ed);
+  box-shadow: var(--shadow);
+}
+
+.reminder-icon {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.social-reminder h2 {
+  margin-bottom: 5px;
+}
+
+.social-reminder p:last-child {
+  margin: 0;
+  color: #31534d;
+  font-size: .92rem;
+}
+
+@media (max-width: 650px) {
+  .social-reminder {
+    padding: 15px;
+  }
+
+  .reminder-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}
